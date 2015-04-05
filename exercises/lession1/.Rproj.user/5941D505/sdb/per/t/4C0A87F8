@@ -1,0 +1,17 @@
+{
+    "contents" : "population = read.csv(\"../../dagdata/inst/extdata/femaleControlsPopulation.csv\")\ndat = read.csv(\"../../dagdata/inst/extdata/femaleMiceWeights.csv\")\n\n\nn = 10000\n\nnull = vector(\"numeric\", n)\n\nfor (i in 1:n) {\n  control = sample(population[,1], 12)\n  treatment = sample(population[,1], 12)\n  null[i] = mean(treatment) - mean(control)\n  \n}\n\ndiff = mean(dat[13:24, 2]) - mean(dat[1:12, 2])\n\nmean (null > diff)\n\nmean (population[,1])\n\npopulation = population[,1]\n\nsampleMean = replicate(10000, mean(sample(population, 12)))\nhead(sampleMean)\n\nplot(sampleMean)\n\nnull = replicate(10000, mean(sample(population, 12)) - mean(sample(population, 12)))\n\nplot(null)\n\nhist(null)\nabline(v=diff, col=\"red\")\n\nabline(v=-diff, col=\"red\")\n\nmean(-diff > null) + mean (null > diff)\n\nmean((-diff  > null ) | (null > diff))\n\n\n# Probability distribution 2\n\nx <- split(gapminder$lifeExp, gapminder$year)[['1952']]\n\nmean(x <= 40)\n\nmean(x <= 60) - mean(x <= 40)\n\nqs = seq(from=min(x), to=max(x), length=20)\n\nprops = sapply(qs, function(q) mean(x <= q))\n\nplot(qs, props)\n\nplot(ecdf(x))\n\npop <- split(gapminder$pop, gapminder$year)[['1952']]\n\nlpop <- log10(pop)\nhist (lpop)\n\nsdlpop = sd(lpop)\nmlpop = mean(lpop)\n\nqqnorm(lpop)\n\nz = (lpop - mlpop)/sdlpop\n\nqqnorm(z)\nabline(0,1)\n\nmax(z)\n\n\nF = function(q) pnorm(q, mean=mean(lpop), sd=sd(lpop))\nnc = length(lpop)\n\nnc*(F(7) - F(6))\n\nsum (lpop >6 & lpop<=7)\n\nhead(pnorm(z))\n\n\nsort(z)[1]\nps = ((1:nc) - 0.5)/nc\n\nplot(qnorm(ps), sort(z))\n\n\n#t test, t-statistic\n\ntreatment = dat[13:24, 2]\ncontrol = dat[1:12, 2]\n\nt.test(treatment, control)\n\n\n\n\n",
+    "created" : 1425493652516.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3925120991",
+    "id" : "4C0A87F8",
+    "lastKnownWriteTime" : 1426698110,
+    "path" : "~/Documents/mystudy/EDEX/PH525.1x_Statistics_and_R_for_the_Life Sciences_Harvard/exercises/lession1/prdistributions.R",
+    "project_path" : "prdistributions.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}

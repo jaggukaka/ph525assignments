@@ -1,0 +1,17 @@
+{
+    "contents" : "\n\n\n\n\n\n\n\n\n\n\n\n\n#inference assignment 1\n\nbabies = read.table(\"babies.txt\", header=TRUE)\n\nbwt.nonsmoke = babies$bwt[babies$smoke==0]\nbwt.smoke = babies$bwt[babies$smoke==1]\n\nmean(bwt.nonsmoke)-mean(bwt.smoke)\nsd(bwt.nonsmoke)\nsd(bwt.smoke)\n\nbwtns_30 = bwt.nonsmoke[1:30]\nbwts_30 = bwt.smoke[1:30]",
+    "created" : 1426698115995.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "639367297",
+    "id" : "35318924",
+    "lastKnownWriteTime" : 1426698142,
+    "path" : "~/Documents/mystudy/EDEX/PH525.1x_Statistics_and_R_for_the_Life Sciences_Harvard/exercises/lession1/Inference1.R",
+    "project_path" : "Inference1.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : false,
+    "type" : "r_source"
+}
